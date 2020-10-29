@@ -29,69 +29,71 @@ blockComments [/][*]([^*]|[*]*[^*/])*[*][/]
 
 %% 
 
-{simpleComments}                                                      {bluePrint("Foi encontrado um comentario simples.",yytext);}
+{simpleComments}                                                      {blue("comentario simples",yytext);}
 
-{blockComments}                                                       {bluePrint("Foi encontrado um comentario em bloco.",yytext);}
+{blockComments}                                                       {blue("comentario em bloco",yytext);}
 
 {ws}		;
 
-{string}                                                              {bluePrint("Foi encontrado uma STRING.",yytext);}
+{string}                                                              {blue("STRING",yytext);}
 
-kuala                                                                 {bluePrint("Foi encontrado um Kuala.",yytext);}
+kuala                                                                 {blue("Kuala",yytext);}
 
-"ʕ·͡ᴥ·ʔ"                                                                 {bluePrint("Foi encontrado um  ʕ·͡ᴥ·ʔ.",yytext);}
+"ʕ·͡ᴥ·ʔ"                                                                 {blue("ʕ·͡ᴥ·ʔ",yytext);}
 
-iguana                                                                {bluePrint("Foi encontrado um IF.",yytext);}
+iguana                                                                {blue("IF",yytext);}
 
-eel                                                                   {bluePrint("Foi encontrado um ELSE.",yytext);}
+eel                                                                   {blue("ELSE",yytext);}
 
-whale                                                                 {bluePrint("Foi encontrado um WHILE.",yytext);}
+whale                                                                 {blue("WHILE",yytext);}
 
-fox                                                                   {bluePrint("Foi encontrado um FOR.",yytext);}
+fox                                                                   {blue("FOR",yytext);}
 
-ibis                                                                  {bluePrint("Foi encontrado um INT.",yytext);}
+ibis                                                                  {blue("INT",yytext);}
 
-frog                                                                  {bluePrint("Foi encontrado um FLOAT.",yytext);}
+frog                                                                  {blue("FLOAT",yytext);}
 
-bug                                                                   {bluePrint("Foi encontrado um BOOL.",yytext);}
+bug                                                                   {blue("BOOL",yytext);}
 
-snake                                                                 {bluePrint("Foi encontrado um STRING.",yytext);}
+snake                                                                 {blue("STRING",yytext);}
 
-viper                                                                 {bluePrint("Foi encontrado um void.",yytext);}
+viper                                                                 {blue("void",yytext);}
 
-{id}	                                                              {bluePrint("Foi encontrado um ID.",yytext);}
+{id}	                                                              {blue("ID",yytext);}
 
-{positive}                                                            {bluePrint("Foi encontrado um numero inteiro positivo.",yytext);}
+{positive}                                                            {blue("numero inteiro positivo",yytext);}
 
-{negative}                                                            {bluePrint("Foi encontrado um numero inteiro negativo.",yytext);}
+{negative}                                                            {blue("numero inteiro negativo",yytext);}
 
-{decimal}                                                             {bluePrint("Foi encontrado um numero com parte decimal.",yytext);}
+{decimal}                                                             {blue("numero com parte decimal",yytext);}
 
-"+"                                                                   {bluePrint("Foi encontrado um +.",yytext);}//yylval = PLUS; return(OP);
+"+"                                                                   {blue("+",yytext);}//yylval = PLUS; return(OP);
 
-"-"                                                                   {bluePrint("Foi encontrado um -.",yytext);}//yylval = MINUS; return(OP);
+"-"                                                                   {blue("-",yytext);}//yylval = MINUS; return(OP);
 
-"*"                                                                   {bluePrint("Foi encontrado um *.",yytext);}//yylval = TIMES; return(OP);
+"*"                                                                   {blue("*",yytext);}//yylval = TIMES; return(OP);
 
-"/"                                                                   {bluePrint("Foi encontrado um /.",yytext);}//yylval = DIVIDE; return(OP);
+"/"                                                                   {blue("/",yytext);}//yylval = DIVIDE; return(OP);
 
-"&&"                                                                  {bluePrint("Foi encontrado um &&.",yytext);}//yylval = AND; return(RELOP);
+"&&"                                                                  {blue("&&",yytext);}//yylval = AND; return(RELOP);
 
-"||"                                                                  {bluePrint("Foi encontrado um ||.",yytext);}//yylval = OR; return(RELOP);
+"||"                                                                  {blue("||",yytext);}//yylval = OR; return(RELOP);
 
-"<"                                                                   {bluePrint("Foi encontrado um <.",yytext);}//yylval = LT; return(RELOP);
+"<"                                                                   {blue("<",yytext);}//yylval = LT; return(RELOP);
 
-"<="                                                                  {bluePrint("Foi encontrado um <=.",yytext);}//yylval = LE; return(RELOP);
+"<="                                                                  {blue("<=",yytext);}//yylval = LE; return(RELOP);
 
-"=="                                                                  {bluePrint("Foi encontrado um ==.",yytext);}//yylval = EQ; return(RELOP);
+"=="                                                                  {blue("==",yytext);}//yylval = EQ; return(RELOP);
 
-"!="                                                                  {bluePrint("Foi encontrado um !=.",yytext);}//yylval = NE; return(RELOP);
+"!="                                                                  {blue("!=",yytext);}//yylval = NE; return(RELOP);
 
-">"                                                                   {bluePrint("Foi encontrado um >.",yytext);}//yylval = GT; return(RELOP);
+">"                                                                   {blue(">",yytext);}//yylval = GT; return(RELOP);
 
-">="                                                                  {bluePrint("Foi encontrado um >=.",yytext);}//yylval = GE; return(RELOP);
+">="                                                                  {blue(">=",yytext);}//yylval = GE; return(RELOP);
 
-{especialChar}                                                  	  {bluePrint("Foi encontrado um char especial.",yytext);}
+{especialChar}                                                  	  {blue("char especial",yytext);}
+
+. {redPrint(yytext);}
 
 %% 
 
