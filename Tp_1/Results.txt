@@ -1,0 +1,20 @@
+Foi encontrado um numero inteiro positivo. LEXEMA: 875878  
+Foi encontrado um numero inteiro negativo. LEXEMA: -3355456  
+Foi encontrado uma palavra. LEXEMA: abc  
+Foi encontrado um numero inteiro positivo. LEXEMA: 5464  
+Foi encontrado uma palavra. LEXEMA: abc  
+Foi encontrado um numero inteiro negativo. LEXEMA: -5464  
+Foi encontrado uma placa. LEXEMA: ABC-5464  
+Foi encontrado um numero inteiro positivo. LEXEMA: 453  
+Foi encontrado um numero inteiro negativo. LEXEMA: -2345  
+Foi encontrado um telefone. LEXEMA: 9486-0847  
+Foi encontrado um nome proprio. LEXEMA: Daniel Mendes Barbosa  
+Foi encontrado um numero com parte decimal. LEXEMA: 32.345  
+Foi encontrado uma palavra. LEXEMA: Palavra  
+Foi encontrado uma palavra. LEXEMA: Qualquer  
+Foi encontrado um telefone. LEXEMA: 3567-3224  
+Foi encontrado um nome proprio. LEXEMA: Daniel Mendes Barbosa Daniel  
+Foi encontrado uma palavra. LEXEMA: Mendes  
+Foi encontrado uma palavra. LEXEMA: Barbosa  
+Foi encontrado uma palavra. LEXEMA: Menezes  
+Foi encontrado um numero inteiro positivo. LEXEMA: 200  

@@ -1,0 +1,39 @@
+// Selection Sort
+viper selectionSort(ibis array, ibis n)
+{
+    ibis i, j, min_element;
+    fox (i = 0; i < n - 1; i++)
+    {
+        min_element = i;
+        fox (j = i + 1; j < n; j++){
+            iguana (array[j] < array[min_element])
+                min_element = j;
+        }//troca de posição
+        ibis temp = array[min_element];
+        array[min_element] = array[i];
+        array[i] = temp;
+    }
+}
+
+// Main Function
+viper kuala()
+{
+    ibis vetor = [15, 10, 99, 53, 36];
+    /*
+    vetor 
+    15, 
+    10, 
+    99, 
+    53, 
+    36
+    */
+    selectionSort(vetor, 5);
+    /*
+    vetor 
+    10,
+    15,
+    36, 
+    53, 
+    99
+    */
+}

@@ -1,0 +1,136 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{xintexpr}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[pdftex]{hyperref}
+\usepackage[alf,abnt-emphasize=bf]{abntex2cite}
+\usepackage{background}
+\usepackage{listingsutf8}
+\usepackage{xcolor}
+\usepackage{inconsolata}
+\usepackage{abntex2-UFV}
+
+%================configuracões da pagina=========================
+
+\setlength{\paperwidth}{21cm}          % Largura da página
+\setlength{\paperheight}{29,7cm}       % Altura da página
+\setlength{\textwidth}{15.5cm}         % Largura do texto
+\setlength{\textheight}{24.6cm}        % Altura do texto
+\setlength{\topmargin}{-1.0cm}         % Margem superior da página = 1 polegada + valor atribuição.
+                                      % \setlenght{\topmargin}{0cm} dá 2.54cm de margem superior.
+\setlength{\oddsidemargin}{0.46cm}   % Margem esquerda = 1 polegada + valor
+\setlength{\evensidemargin}{0.46cm} 
+
+\graphicspath{/ }
+
+
+\begin{document}
+    \brasao{LogoUFV.png}
+
+    
+    
+    \begin{center}
+       \instituicao{Universidade Federal de Viçosa}
+\campus{\emph{Campus} de Florestal}
+\curso{Ciência da computação}
+        \end{center}
+        
+        \baselineskip 30pt
+        
+        \vspace*{0.3cm}
+        
+        \begin{center}
+        {\LARGE \bfseries {Trabalho I - COMPILADORES} \linebreak} 
+        \end{center}
+        
+        \vspace*{1cm}
+        
+        \setcounter{footnote}{1}
+        
+        \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+        \begin{center}
+        {\sc  Vitor Hugo Oliveira Silva - 3049}
+        \vspace*{0.3cm}
+        \end{center}
+        
+        \setcounter{footnote}{1}
+        
+        \vspace*{2.8cm}
+        
+        \baselineskip 17pt
+        
+        \vspace*{1.5cm}
+        \begin{center}
+        {{\bf Florestal\par{Novembro de 2019}}}
+        \end{center}
+        
+        \vspace*{.05cm}
+        \renewcommand{\thefootnote}{\arabic{footnote}}
+        \thispagestyle{empty}
+        \pagebreak
+        \baselineskip 19pt
+        
+        \newpage
+        \begin{center}
+        \tableofcontents
+        \thispagestyle{empty}
+        \cleardoublepage
+    \end{center}
+    
+    \newpage
+    \section{Introdução}
+    
+        Ferramentas para gerenciar conteúdo e auxiliar na construção de um site estão cada vez mais populares, uma vez que esses CMSs (Content Manager Systems) facilitam, e muito, na criação de conteúdo para um site. O motivo dessa facilitação dá-se ao fato de que existe toda uma interface de gerenciamento para cada grupo de papéis na administração do site, como exemplo, um editor pode facilmente editar uma informação que um contribuidor publicou anteriormente, e um contribuidor não pode editar ou visualizar uma outra publicação que ainda está no processos de revisão (antes de ser publicada).
+        
+        Tendo em vista os CMSs, o trabalho consiste em realizar um exploração dos mesmos, mais especificamente do Plone/Zope e um outro a nossa escolha, que no caso foi o ExpressionEngine. Os elementos a serem explorados são:
+        
+        \begin{itemize}
+        
+            \item Instalação
+            \item Tecnologias utilizadas pelo CMS (Linguagem de programação, banco de dados, servidor);
+            \item Principais recursos
+            \item Vantagens e desvantagens
+            \item Dificuldades
+        \end{itemize}
+        
+        Para realizar a exploração de cada um dos CMSs, um contexto foi definido: Portal para criação de fichas de personagens de RPG
+        
+        O controle de usuários seria dados pelos seguintes papéis:
+        \begin{itemize}
+        
+            \item Anônimos: Visualização de fichas já cadastradas;
+            \item Autenticado: Permissão para resposta (Comentários)
+            \item Contribuidor: Submissão de fichas de personagens (Informações do personagem: Nome, Raça, Classe, Idade, História, etc);
+            \item Editor: Editar fichas dos personagens/Solicitar revisão/Editar template;
+            \item Revisor: Revisar comentários (Excluir e editar)/Revisar conteúdo do portal antes da postagem;
+            \item Administrador: Quase tudo/Modificar permissões dos usuários
+        \end{itemize}
+          
+        E por fim realizar uma comparação entre os dois CMSs escolhidos, sendo considerado os elementos a serem explorados citados anteriormente.
+    
+    \input{Plone/plone.tex}
+    
+    \input{ExpressionEngine/expressionengine.tex}
+    
+    
+    \section{Conclusão}
+    
+        Com a análise dos dois CMSs, concluímos que cada um deles são forte em algumas coisa: Plone em praticidade e padronização de tudo (ou quase tudo), requirindo um conhecimento mais aprofundado no ZOPE, enquanto o EE facilita mais a criação dos campos dinâmicos do site.
+        
+        E, apesar da instalação do EE ser um pouco mais complexa, a confiança ao modificar as configurações no painel do administrador foi maior, já que é uma interface bem amigável e até mesmo quem não tem conhecimentos técnicos aprofundados consegue alterar bastantes elementos. Necessitando mais da parte técnica para criação do template do site.
+        
+        TEAM Expression Engine!
+
+\end{document}
