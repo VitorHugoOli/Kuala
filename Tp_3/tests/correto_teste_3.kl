@@ -1,15 +1,15 @@
-snake kuala(){
+viper kuala(){
     snake ret = "Isso aqui sera retornado";
     ibis num = 90, cont = 0;
     frog atoa = 45.06;
 
     whale(cont < 1000){
         cont++;
-        frog = frog + 0.42;
-        ret = ret + "!";
+        frog a = a + 0.42;
+        ret = "!" + ret;
     }
 
     ret = "So que nao!";
 
-    rabbit "Isso e tudo pessoal!";
+    print (ret + "Isso e tudo pessoal!");
 }

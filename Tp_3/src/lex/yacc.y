@@ -35,6 +35,7 @@ program : funct_list kuala funct_list
 
 kuala  : KUALA funct_body
 	   | VOID KUALA funct_body
+	   | INT KUALA funct_body
 	   ;
 
 funct_list	: funct funct_list
@@ -78,7 +79,6 @@ expr_statement	: dclr ';'
 				| attr ';' 
 				| call_funct ';'
 				| RETURN oper ';'
-				| RETURN oper_str ';'
 				| RETURN ';'
 				| error
 				;
@@ -86,7 +86,6 @@ expr_statement	: dclr ';'
 expr		: logic
 			| rel
 			| oper
-			| oper_str
 			| attr
 			| string
 			;
@@ -108,6 +107,7 @@ rel     : rel_oper LT rel_oper
 	    | rel_oper GE rel_oper
 	    | rel_oper EQ rel_oper
 	    | rel_oper NE rel_oper
+		| rel_oper
 		;
 
 rel_oper	: oper
@@ -118,22 +118,17 @@ oper   : oper '+' oper
 	   | oper '*' oper
 	   | oper '/' oper //division by 0
 	   | oper '%' oper
+	   | '-' oper
 	   | '(' oper ')'
 	   | consts
 	   | id
+	   | string
+	   | array_entry
 	   ;
 
-array_entry : array_entry '[' consts ']'
-			| array_entry '[' id ']'
-			| id '[' consts ']'
-			| id '[' id ']'
+array_entry : array_entry '[' oper ']'
+			| id '[' oper ']'
 			;
-
-oper_str : oper_str '+' oper_str
-		 | id
-		 | string
-		 | '(' oper_str ')'
-		 ;
 
 
 dclr 	   :  type_consts id_list 
@@ -141,7 +136,8 @@ dclr 	   :  type_consts id_list
 		   |  type_consts id '[' ']'
 		   ;
 
-id_list : id ',' id_list
+id_list : id_list ',' id_list
+		| id '=' oper
 		| id
 		;
 
@@ -175,9 +171,7 @@ attr_types 	: dclr
 			;
 
 attr       : attr_types '=' oper
-		   | attr_types '=' string
 		   | attr_types '=' array
-		   | attr_types '=' array_entry
 		   | id INCRMT
 	       | id DECRMT
 		   | array_entry INCRMT
@@ -199,7 +193,7 @@ consts						: int_const
 
 int main(int argc,char *argv[])
 {
-	yydebug= 0;
+	yydebug = 0;
 
 	extern int verbose;
 	 if( argc == 2 && strcmp(argv[1],"--verbose")==0) {

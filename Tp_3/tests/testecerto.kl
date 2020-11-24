@@ -1,4 +1,4 @@
-kuala(){
+ʕ·͡ᴥ·ʔ(){
     //kuala hj amanha e sempre
     ibis n=0,aux,value;
 	ibis array[50];
@@ -6,22 +6,22 @@ kuala(){
     n = 5;
 
     array = [1234, 14154, 414531, 525252,52135132];
-	for (ibis d=0; d< n; d++){
+	fox (ibis d = 0; d < n; d++){
 		aux = array[d];
-		for(ibis k=(d+1); k<n; k++){
-			if(aux < array[k]){ //Ao trocar o sinal ">" para "<", você transforma o programa numa sequencia decrescente.
+		fox(ibis k = (d + 1); k < n; k++){
+			iguana(aux < array[k]){ //Ao trocar o sinal ">" para "<", você transforma o programa numa sequencia decrescente.
 				value = aux;
 				aux = array[k]; //Troca de valores.Começando de um valor fixo.
 				array[k]= value;
-		array[d] = aux;
+				array[d] = aux;
 			}
 		}
 	}
 	print("números ordenados: ");
-	for(ibis f=0; f<n-1;f++ ){
+	fox(ibis f=0; f<n - 1;f++ ){
 		print(array[f]); //Imprime o resultado final ordenado.
 	}
-	print(array[n-1]);
+	print(array[n - 1]);
 	
 }
 

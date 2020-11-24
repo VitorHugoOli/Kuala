@@ -1,5 +1,5 @@
 // Selection Sort
-viper selectionSort [] (ibis arr[], ibis n)
+viper selectionSort (ibis arr[], ibis n)
 {
     ibis i, j, min_element;
     fox (i = 0; i < n - 1; i++ )
