@@ -1,0 +1,5 @@
+ibis main(){
+  //id começando com número, e não tem ponto e vírgula
+  ibis s, v, 2g;
+  s = 1 + 3
+}

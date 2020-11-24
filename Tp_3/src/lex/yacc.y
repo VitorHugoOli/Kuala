@@ -77,6 +77,9 @@ stmt       : IF '(' logic ')' block
 expr_statement	: dclr ';' 
 				| attr ';' 
 				| call_funct ';'
+				| RETURN oper ';'
+				| RETURN oper_str ';'
+				| RETURN ';'
 				| error
 				;
 
@@ -99,13 +102,16 @@ logic : logic AND logic
 	  | rel
 	  ;
 
-rel     : oper LT oper   
-	    | oper GT oper
-	    | oper LE oper
-	    | oper GE oper
-	    | oper EQ oper
-	    | oper NE oper
+rel     : rel_oper LT rel_oper   
+	    | rel_oper GT rel_oper
+	    | rel_oper LE rel_oper
+	    | rel_oper GE rel_oper
+	    | rel_oper EQ rel_oper
+	    | rel_oper NE rel_oper
 		;
+
+rel_oper	: oper
+			| array_entry
 
 oper   : oper '+' oper 
 	   | oper '-' oper	
@@ -113,8 +119,7 @@ oper   : oper '+' oper
 	   | oper '/' oper //division by 0
 	   | oper '%' oper
 	   | '(' oper ')'
-	   | consts 
-	   | array_entry
+	   | consts
 	   | id
 	   ;
 
@@ -140,11 +145,15 @@ id_list : id ',' id_list
 		| id
 		;
 
-funct_dclr : type_consts id
-		   ;
+funct_dclr 	: type_consts id
+		   	;
 
-param_list : funct_dclr ',' param_list
-		   | funct_dclr
+param_dclr 	: type_consts id
+			| type_consts id '[' ']'
+			;
+
+param_list : param_dclr ',' param_list
+		   | param_dclr
 		   | error // continue parsing 
 		   ;
 
@@ -165,7 +174,7 @@ attr_types 	: dclr
 			| array_entry
 			;
 
-attr       : attr_types '=' oper 
+attr       : attr_types '=' oper
 		   | attr_types '=' string
 		   | attr_types '=' array
 		   | attr_types '=' array_entry
@@ -173,7 +182,6 @@ attr       : attr_types '=' oper
 	       | id DECRMT
 		   | array_entry INCRMT
 		   | array_entry DECRMT
-		   | 
 		   ;
 
 type_consts            		: INT
