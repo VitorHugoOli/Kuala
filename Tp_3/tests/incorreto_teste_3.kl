@@ -1,0 +1,14 @@
+//Nome tem que comecar com 'kuala'
+viper main(){
+    kuala nome = "Kuala";
+    snake qq_coisa = "Qualquer Coisa";
+    //variavel nao pode comecar com numero
+    bug 1bug = true;
+
+    iguana(1bug){
+        qq_coisa = "Qualquer Coisa Verdadeira";
+    }
+    eel{
+        qq_coisa = "Qualquer coisa falsa";
+    }
+}

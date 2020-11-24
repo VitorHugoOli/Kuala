@@ -1,0 +1,17 @@
+snake kuala(){
+    //tipo comecando com letra maiuscula
+    Snake nome = "Diego", 2nome;
+    //mesmo erro de cima porem para outro tipo de variavel
+    Bug verdade;
+    //definindo identificador com nome de palavra resercada
+    ibis = iguana, mindinho = 94;
+
+    //Semanticamente incorreto, mas dintaticamente correto, nao deve apresentar erro
+    whale(mindinho){
+        nome = "Faz nada";
+    }
+
+    //Pode dar um erro caso precise de abertura e fechamento de escopo
+    iguana(verdade)
+        verdade = true
+}

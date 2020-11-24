@@ -1,0 +1,26 @@
+ibis kuala(){
+    snake ok = "Nao sei o que colocar mais aqui, entao toma esse simplorio _ok_";
+    //faltou algumas virgulas
+    ibis nome carro, moto = 0 nada_denovo;
+
+    //Faltou o argumento
+    iguana(){
+        //nada nao foi definido
+        moto = nada;
+    }
+
+    //Nao tem nem os parenteses e nem os argumentos
+    whale{
+        ok = "Manda";
+    }
+
+    //variavel definida dentro do for
+    fox(ibis a = 0; ibis < 7; ibis++){
+        nome = false;
+    }
+
+    iguana(true){
+        //nao tem nada aqui, deveria ter
+    }
+    //deveria ter um retorno aqui
+}

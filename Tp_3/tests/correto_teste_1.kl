@@ -1,0 +1,24 @@
+viper kuala(){
+    snake pessoa = "Adivinha";
+    ibis idade = 45, x;
+    bug empregado = true;
+    frog salario = 4523.00;
+    
+    whale(salario > 1000){
+        iguana(empregado){
+            pessoa = "Novo Nome";
+            salario = salario + 123.00;
+            empregado = false;
+        }
+        eel{
+            pessoa = "Novo Nome de Desempregado";
+            salario = salario - 246.00;
+            empregado = true;
+        }
+    }
+
+    fox(x = 0; x < 10; x++){
+        salario = salario + 23.00;
+        idade = idade + 1; 
+    }
+}

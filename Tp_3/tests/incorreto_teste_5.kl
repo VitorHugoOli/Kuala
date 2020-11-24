@@ -1,0 +1,3 @@
+//Abertura e fechamento de escopo para funcao
+viper kuala()
+    snake nada = "Falta coisa aqui";

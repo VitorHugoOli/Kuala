@@ -1,0 +1,19 @@
+bug kuala(){
+    snake nota = "Sera que e verdade?";
+    ibis t1 = 0; t2 = 1; t3, x;
+
+    fox(x = 3; x <= 19; x++){
+        t3 = t1 + t2;
+        t1 = t2;
+        t2 = t3;
+    }
+
+    iguana(t3 == 2584){
+        nota = "Acho que e verdadeiro...";
+        rabbit true;
+    }
+    eel{
+        nota = "...mas como nao tenho certeza, deixo aqui a indagacao de que tambem pode ser falso!";
+        rabbit false;
+    }
+}

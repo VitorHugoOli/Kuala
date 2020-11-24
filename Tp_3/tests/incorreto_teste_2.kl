@@ -1,0 +1,12 @@
+ibis kuala(){
+    snake acao = "Correr";
+    whale(true){
+        //falta o fechamento de escopo
+        iguana(acao == "correr"){
+            rabbit 1;
+        
+        eel{
+            acao = "correr;
+        }
+    }
+}

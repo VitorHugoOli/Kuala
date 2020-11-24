@@ -1,0 +1,12 @@
+snake kuala(){
+    //Encerrou o comando com ponto e nao ponto e virgula
+    snake abobora = "Isso com certeza nao sera retornado".
+    ibis num;
+    //Nao definiu o nome da variavel, esta atribuindo valor a um tipo e nao ao id
+    bug = true;
+    flog salario = "semantica errada",
+
+    abobora = "Eu falei que nao seria retornado";
+    //Nao tem nada apos o iguana alem de nao retornar nada para uma funcao do tipo string
+    iguala(bug)
+}
