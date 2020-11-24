@@ -1,0 +1,56 @@
+kuala(){
+
+    ibis quadrado(ibis a) {
+        frog A = a * a; // será que da erro pq é inteiro e guardei no float
+        print(A) //sem ponto e virgula
+    }
+
+    ibis triangulo(ibis b, ibis h) {
+        frog A = (b * h)/2;
+        print(A);
+    }
+
+    ibis trapezio(ibis B, ibis b, ibis h) {
+        frog A = (B+b)/2) * h; // falta parenteses
+        return A; // funciona return?
+    }
+
+    retangulo(ibis a, ibis b) {// nao pus variavel de retorno, mas faço retorno
+        frog A = a * b;
+        return A;
+    }
+
+    ibis paralelogramo(ibis b, ibis h) {
+        frog A : B * h; // variavel nao existe e atribui errado
+        print(A);
+    }
+
+ibis a,b,B,h;
+
+a = 3.0; // nao é float
+
+b = 5;
+
+B = 'a'; // nao é string
+
+h = 10;
+
+a = 3;
+
+b = 5;
+
+B = 2;
+
+h = 10;
+
+quadrado(a);
+triangulo(b,h);
+trapezio(B, b, h);
+ibis c = retangulo(a,b);
+ibis d = paralelogramo(b,h);
+
+
+print(c);
+print(d);
+
+}
