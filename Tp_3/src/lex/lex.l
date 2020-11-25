@@ -11,6 +11,7 @@ extern int yychar_count;
 int verbose = 0;
 extern int verbose;
 #define show(mensg) verbose ? blue(mensg,yytext) : NULL
+int countNewLine(char *s);
 
 %} 
 
@@ -42,13 +43,13 @@ blockComments [/][*]([^*]|[*]*[^*/])*[*][/]
 
 {simpleComments}                                                      show("comentario simples"); yyline++; 
 
-{blockComments}                                                       show("comentario em bloco"); 
+{blockComments}                                                       show("comentario em bloco"); yyline+=countNewLine(yytext); 
 
 {ws}		                                                              yyline++;yychar_count=1;
 
 {space}                                                                yychar_count++;
 
-{string}                                                               show("STRING"); yychar_count+=strlen(yytext); return string; 
+{string}                                                               show("STRING"); yyline+=countNewLine(yytext); yychar_count+=strlen(yytext); return string; 
 
 kuala                                                                  show("Kuala"); yychar_count+=5; return KUALA;
 
@@ -117,6 +118,10 @@ rabbit                                                                 show("ret
 . {redPrint(yytext,yyline,yychar_count);yychar_count++; } //yyterminate();
 
 %% 
+
+int countNewLine(char *s){
+  return *s == '\0' ? 0 : countNewLine(s + 1) + (*s == '\n');
+}
 
 /* int main(int argc,char *argv[]) 
 { 

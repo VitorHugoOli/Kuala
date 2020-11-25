@@ -66,7 +66,7 @@
 
 
 /* First part of user prologue.  */
-#line 1 "yacc.y" /* yacc.c:337  */
+#line 1 "translate.y" /* yacc.c:337  */
 
 	#include<stdio.h>
 	#include <string.h>
@@ -1678,7 +1678,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 195 "yacc.y" /* yacc.c:1918  */
+#line 195 "translate.y" /* yacc.c:1918  */
 
 
 int main(int argc,char *argv[])
@@ -1696,7 +1696,8 @@ int main(int argc,char *argv[])
 	
 
     if(success)
-    	printf("\n\n\e[1;32mParsing Successful ʕ·͡ᴥ·ʔ \n\n");
+    	printf("\n\n\e[1;32mPrograma sintaticamente correto ʕ·͡ᴥ·ʔ \n\n");
+	else printf("\n\n\e[1;31mPrograma sintaticamente incorreto ʕ·͡ᴥ·ʔ \n\n");
     return 0;
 }
 
@@ -1706,7 +1707,7 @@ int yyerror(const char *msg)
 	extern int yyline;
 	extern int yychar_count;
 
-	printf("\e[1;34mSyntatic Error:\nLine Number(yylineno): %d\nLine Number(yyline): %d Char Number: %d\n\e[1;0mMenssage:\n  %s\n\e[0m",yylineno,yyline, yychar_count, msg);
+	printf("\e[1;34mSyntatic Error:\nErro próximo a linha(yylineno): %d\nErro próximo a linha(yyline): %d  coluna: %d\n\e[1;0mMenssage:\n  %s\n\n\e[0m",yylineno,yyline, yychar_count, msg);
 	success = 0;
 	return 0;
 }

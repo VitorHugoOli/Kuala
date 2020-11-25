@@ -8,8 +8,6 @@ log=false;
 verbose=0;
 
 
-
-
 if [[ $1 == *"--log"* ||  $2 == *"--log"*  ]]; then
     log=true;
 fi

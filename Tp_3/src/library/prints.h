@@ -8,5 +8,5 @@ void blue(char* string, char* lexema){
 
         
 void redPrint(char* lexema,int linha,int chara){
-    printf("\e[1;31mLexical Error, Couldn't find a compatible lexeme: %s\nDEGUG -> Line: %d  Char: %d\e[0m\n",lexema,linha,chara);
+    printf("\e[1;31mLexical Error, Couldn't find a compatible lexeme: %s\nDEGUG -> Line: %d  Char: %d\e[0m\n\n",lexema,linha,chara);
 }
