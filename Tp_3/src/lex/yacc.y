@@ -130,10 +130,13 @@ array_entry : array_entry '[' oper ']'
 			| id '[' oper ']'
 			;
 
+array_size	:array_size array_size
+			|'[' consts ']'
+			|'[' ']'
+			;
 
 dclr 	   :  type_consts id_list 
-		   |  type_consts id '[' consts ']' 
-		   |  type_consts id '[' ']'
+		   |  type_consts id array_size
 		   ;
 
 id_list : id_list ',' id_list

@@ -18,7 +18,7 @@ viper selectionSort (ibis arr[], ibis n)
 // Main Function
 kuala()
 {
-    ibis vetor[] = [15, 10, 99, 53, 36];
+    ibis vetor[][] = [15, 10, 99, 53, 36];
     /*
     vetor 
     15, 
