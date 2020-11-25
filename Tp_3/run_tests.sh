@@ -1,8 +1,8 @@
 clear
 cd src
-cd yacc && bison -dy --debug yacc.y && cd ..  
+cd yacc && bison -dy --debug translate.y && cd ..  
 cd lex && lex lex.l && cd ..
-gcc lex/lex.yy.c yacc/y.tab.c  
+gcc lex/lex.yy.c yacc/y.tab.c -ly 
 
 log=false;
 verbose=0;
@@ -20,7 +20,7 @@ fi
 
 for d in ../tests/succ/* ; do
     result=$(./a.out $verbose < $d)
-    if [[ $result == *"Parsing Successful"* ]]; then
+    if [[ $result == *"Programa sintaticamente correto"* ]]; then
         echo -e "Teste: $d - \e[1;32m Parsing Successful ʕ·͡ᴥ·ʔ! \e[0m\n"
     else
         echo -e "Teste: $d - \e[1;31;5m Parsing Fail! \e[0m\n"
@@ -36,7 +36,7 @@ done
 
 for d in ../tests/fail/* ; do
     result=$(./a.out $verbose < $d)
-     if [[ $result == *"Parsing Successful"* ]]; then
+     if [[ $result == *"Programa sintaticamente correto"* ]]; then
         echo -e "Teste: $d - \e[1;32m Parsing Successful ʕ·͡ᴥ·ʔ! \e[0m\n"
      else
         echo -e "Teste: $d - \e[1;31;5m Parsing Fail! \e[0m\n"
@@ -44,7 +44,7 @@ for d in ../tests/fail/* ; do
             echo -e "\e[1mLOG ERROR: \e[0m"
             echo -e "---------------------------"
             echo -e "$result"
-            echo -e "---------------------------\n"
+            echo -e "\e[0m---------------------------\n"
         fi
     fi
 done

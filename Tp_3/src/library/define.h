@@ -1,10 +1,10 @@
 // #define RELOP 0 //Tipo Operacional de comparação
-// #define LT 1 // Menor que 
-// #define LE 2 // Menor Igual que 
-// #define EQ 3 // Igual que 
-// #define NE 4 // Diferente que 
-// #define GT 5 // Maior que 
-// #define GE 6 // Maior igual que 
+#define LT 1 // Menor que 
+#define LE 2 // Menor Igual que 
+#define EQ 3 // Igual que 
+#define NE 4 // Diferente que 
+#define GT 5 // Maior que 
+#define GE 6 // Maior igual que 
 
 // #define IF 10 // IGUANA
 // #define ELSE 11 //EEL
@@ -24,12 +24,14 @@
 #define MINUS 33 // -
 #define TIMES 34 // *
 #define DIVIDE 35 // /
+#define REST 36 // /
 
 
 
 
-// #define AND 81// &&
-// #define OR 82// ||
+
+#define AND 81// &&
+#define OR 82// ||
 
 
 // #define INT 90 // IBIS

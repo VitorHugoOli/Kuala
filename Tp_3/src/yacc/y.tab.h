@@ -62,23 +62,15 @@ extern int yydebug;
     INT = 268,
     FLOAT = 269,
     BOOL = 270,
-    OP = 271,
-    RELOP = 272,
-    STRING = 273,
-    VOID = 274,
-    RETURN = 275,
-    AT = 276,
-    AND = 277,
-    OR = 278,
-    NOT = 279,
-    LE = 280,
-    GE = 281,
-    LT = 282,
-    GT = 283,
-    EQ = 284,
-    NE = 285,
-    INCRMT = 286,
-    DECRMT = 287
+    RELOP = 271,
+    STRING = 272,
+    VOID = 273,
+    RETURN = 274,
+    AT = 275,
+    LOGIC = 276,
+    NOT = 277,
+    INCRMT = 278,
+    DECRMT = 279
   };
 #endif
 /* Tokens.  */
@@ -95,23 +87,15 @@ extern int yydebug;
 #define INT 268
 #define FLOAT 269
 #define BOOL 270
-#define OP 271
-#define RELOP 272
-#define STRING 273
-#define VOID 274
-#define RETURN 275
-#define AT 276
-#define AND 277
-#define OR 278
-#define NOT 279
-#define LE 280
-#define GE 281
-#define LT 282
-#define GT 283
-#define EQ 284
-#define NE 285
-#define INCRMT 286
-#define DECRMT 287
+#define RELOP 271
+#define STRING 272
+#define VOID 273
+#define RETURN 274
+#define AT 275
+#define LOGIC 276
+#define NOT 277
+#define INCRMT 278
+#define DECRMT 279
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

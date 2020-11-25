@@ -1,18 +1,21 @@
 %{
-	#include<stdio.h>
-	#include <string.h>
+	#include <stdio.h>
+	#include <stdlib.h>
 	int yylex(void);
 	int yyerror(const char *s);
 	int success = 1;
 	#define YYDEBUG_LEXER_TEXT yytext
 %}
 
+
+
+
 %define parse.error verbose
 
 
 %token int_const char_const float_const id string  
-%token KUALA IF ELSE WHILE FOR INT FLOAT BOOL OP RELOP STRING VOID RETURN AT
-%token AND OR NOT LE GE LT GT EQ NE INCRMT DECRMT
+%token KUALA IF ELSE WHILE FOR INT FLOAT BOOL RELOP STRING VOID RETURN AT
+%token LOGIC NOT INCRMT DECRMT
 
 /* Operator precedence for mathematical operators */
 %left '+' '-'
@@ -47,18 +50,21 @@ funct  : funct_dclr funct_body
 	   ;
 
 
-funct_body 		: '(' ')'  block
-				| '(' param_list ')'
-		    	| '(' param_list ')' block
+funct_body 		: '(' ')'  simple_block
+				| '(' ')' ';'
+				| '(' param_list ')' ';'
+		    	| '(' param_list ')' simple_block
 				;
+
+simple_block  : '{' '}'
+	   		  | '{' stmt '}'
+	   			;
 
 call_funct   : id '(' expr_list ')'
 			 ;
 
-block  : '{' '}'
-	   | '{' '}' stmt
-	   | '{' stmt '}'
-	   | '{' stmt '}' stmt
+block  : simple_block
+	   | simple_block stmt
 	   ;
 
 stmt       : IF '(' logic ')' block
@@ -87,43 +93,38 @@ expr		: logic
 			| rel
 			| oper
 			| attr
-			| string
 			;
 
-expr_list  : expr ',' expr_list
+expr_list  	: expr ',' expr_list
 			| expr
 			;
 
-logic : logic AND logic 
-	  | logic OR logic
-	  | logic NOT logic
+logic : logic LOGIC logic
+	  | NOT logic
 	  |'(' logic ')'
 	  | rel
 	  ;
 
-rel     : rel_oper LT rel_oper   
-	    | rel_oper GT rel_oper
-	    | rel_oper LE rel_oper
-	    | rel_oper GE rel_oper
-	    | rel_oper EQ rel_oper
-	    | rel_oper NE rel_oper
+rel     : rel_oper RELOP rel_oper   
 		| rel_oper
 		;
 
 rel_oper	: oper
 			| array_entry
 
-oper   : oper '+' oper 
-	   | oper '-' oper	
-	   | oper '*' oper
-	   | oper '/' oper //division by 0
-	   | oper '%' oper
+oper   : oper '+' oper
+       | oper '-' oper
+       | oper '*' oper 
+       | oper '/' oper 
+       | oper '%' oper 
 	   | '-' oper
+	   | '+' oper
 	   | '(' oper ')'
 	   | consts
 	   | id
 	   | string
 	   | array_entry
+	   | call_funct
 	   ;
 
 array_entry : array_entry '[' oper ']'
@@ -173,6 +174,7 @@ attr_types 	: dclr
 			| array_entry
 			;
 
+
 attr       : attr_types '=' oper
 		   | attr_types '=' array
 		   | id INCRMT
@@ -209,8 +211,8 @@ int main(int argc,char *argv[])
 	
 
     if(success)
-    	printf("\n\n\e[1;32mPrograma sintaticamente correto ʕ·͡ᴥ·ʔ \n\n");
-	else printf("\n\n\e[1;31mPrograma sintaticamente incorreto ʕ·͡ᴥ·ʔ \n\n");
+    	printf("\n\n\e[1;32mPrograma sintaticamente correto ʕ·͡ᴥ·ʔ\e[0m \n\n");
+	else printf("\n\n\e[1;31mPrograma sintaticamente incorreto ʕ·͡ᴥ·ʔ\e[0m \n\n");
     return 0;
 }
 
@@ -220,7 +222,7 @@ int yyerror(const char *msg)
 	extern int yyline;
 	extern int yychar_count;
 
-	printf("\e[1;34mSyntatic Error:\nErro próximo a linha(yylineno): %d\nErro próximo a linha(yyline): %d  coluna: %d\n\e[1;0mMenssage:\n  %s\n\n\e[0m",yylineno,yyline, yychar_count, msg);
+	printf("\e[1;34mSyntatic Error:\nErro próximo a linha(yylineno): %d\nErro próximo a linha(yyline): %d  coluna: %d\n\e[1;0mMenssage:\n  %s\e[0m \n\n ",yylineno,yyline, yychar_count, msg);
 	success = 0;
 	return 0;
 }

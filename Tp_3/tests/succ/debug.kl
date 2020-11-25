@@ -1,7 +1,17 @@
-viper selectionSort(ibis array, ibis n){}
+viper selectionSort(ibis array, ibis n);
 
 
 kuala () {
     snake a = "opa
     ";
+
+    frog a = 1 + (- 2);
+
+    iguana(!a||(2+2)<=9){}
+
+    iguana( !a || (2+2) <= 9 ){}
+
+
+    iguana(!a|| ((2+2)<=9) ){}
+
 }

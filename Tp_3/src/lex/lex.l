@@ -4,6 +4,7 @@
 #include "../library/define.h"
 #include "../yacc/y.tab.h"
 
+
 int yyline=1;
 int yychar_count=1;
 extern int yyline;
@@ -29,12 +30,10 @@ lowerCase [a-z]
 bothCase [A-Za-z]
 digit [0-9]  
 id (_|{bothCase})({bothCase}|{digit}|_)*
-positive \+?{digit}+ 
-negative \-[1-9]{digit}*
+inteiro {digit}+ 
 float \.{digit}+ 
-decimal {positive}{float}
-decimalNegative \-{digit}+{float}
-especialChar [;|=|,|{|}|(|)|\[|\]|?|:|&|||^|!|~|%|<|>|\'|\']
+decimal {inteiro}{float}
+especialChar [;|=|,|{|}|(|)|\[|\]|?|:|&|||^|<|>|\'|\']
 string \"(\\.|[^\"])*\"
 simpleComments \/\/(.|[^\n])*
 blockComments [/][*]([^*]|[*]*[^*/])*[*][/]
@@ -75,43 +74,43 @@ viper                                                                  show("voi
 
 rabbit                                                                 show("return"); yychar_count+=5; return RETURN;
 
-{id}	                                                                 show("ID"); yychar_count+=strlen(yytext); return id;
+{id}	                                                                 show("ID");  return id;
 
-{positive}                                                             show("numero inteiro positivo"); yychar_count+=strlen(yytext); return int_const;
+{inteiro}                                                              show("numero inteiro");   return int_const;
 
-{negative}                                                             show("numero inteiro negativo"); yychar_count+=strlen(yytext); return int_const;
-
-{decimal}                                                              show("numero com parte decimal"); yychar_count+=strlen(yytext); return float_const;
-
-{decimalNegative}                                                      show("numero com parte decimal NEGATIVA"); yychar_count+=strlen(yytext); return float_const;
+{decimal}                                                              show("numero decimal");  return float_const;
 
 "+"                                                                    show("+"); yychar_count++; yylval = PLUS; return '+';
 
-"++"                                                                    show("++"); yychar_count++; yylval = PLUS; return INCRMT;
-
 "-"                                                                    show("-"); yychar_count++; yylval = MINUS; return '-';
-
-"--"                                                                    show("--"); yychar_count++; yylval = MINUS; return DECRMT;
 
 "*"                                                                    show("*"); yychar_count++; yylval = TIMES; return '*';
 
 "/"                                                                    show("/"); yychar_count++; yylval = DIVIDE; return '/';
 
-"&&"                                                                   show("&&"); yychar_count+=2; yylval = AND; return AND;
+"%"                                                                    show("%"); yychar_count++; yylval = REST; return '%';
 
-"||"                                                                   show("||"); yychar_count+=2; yylval = OR; return OR;
+"--"                                                                    show("--"); yychar_count++; yylval = MINUS; return DECRMT;
 
-"<"                                                                    show("<"); yychar_count+=2; yylval = LT; return LT;
+"++"                                                                    show("++"); yychar_count++; yylval = PLUS; return INCRMT;
 
-"<="                                                                   show("<="); yychar_count+=2; yylval = LE; return LE;
+"&&"                                                                   show("&&"); yychar_count+=2; yylval = AND; return LOGIC;
 
-"=="                                                                   show("=="); yychar_count+=2; yylval = EQ; return EQ;
+"||"                                                                   show("||"); yychar_count+=2; yylval = OR; return LOGIC;
 
-"!="                                                                   show("!="); yychar_count+=2; yylval = NE; return NE;
+"!"                                                                    show("!"); yychar_count++; yylval = NOT; return NOT;
 
-">"                                                                    show(">"); yychar_count+=2; yylval = GT; return GT;
+"<"                                                                    show("<"); yychar_count+=2; yylval = LT; return RELOP;
 
-">="                                                                   show(">="); yychar_count+=2; yylval = GE; return GE;
+"<="                                                                   show("<="); yychar_count+=2; yylval = LE; return RELOP;
+
+"=="                                                                   show("=="); yychar_count+=2; yylval = EQ; return RELOP;
+
+"!="                                                                   show("!="); yychar_count+=2; yylval = NE; return RELOP;
+
+">"                                                                    show(">"); yychar_count+=2; yylval = GT; return RELOP;
+
+">="                                                                   show(">="); yychar_count+=2; yylval = GE; return RELOP;
 
 {especialChar}                                                  	   show("char especial"); yychar_count++; return yytext[0]; 
 
