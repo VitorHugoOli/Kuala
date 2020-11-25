@@ -14,4 +14,13 @@ kuala () {
 
     iguana(!a|| ((2+2)<=9) ){}
 
+    frog a = 4, b = 10;
+
+    ibis idade = 45, x;
+
+    bug empregado = true;
+
+    frog salario = 4523.00;
+    print(a=2);
+
 }

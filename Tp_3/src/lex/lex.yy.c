@@ -947,7 +947,7 @@ show("return"); yychar_count+=5; return RETURN;
 case 18:
 YY_RULE_SETUP
 #line 77 "lex.l"
-show("ID");  return id;
+show("ID");  return id; yylval = createString(yytext);
 	YY_BREAK
 case 19:
 YY_RULE_SETUP

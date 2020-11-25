@@ -74,7 +74,7 @@ viper                                                                  show("voi
 
 rabbit                                                                 show("return"); yychar_count+=5; return RETURN;
 
-{id}	                                                                 show("ID");  return id;
+{id}	                                                                 show("ID");  return id; yylval = createString(yytext);
 
 {inteiro}                                                              show("numero inteiro");   return int_const;
 

@@ -24,7 +24,7 @@
 #define MINUS 33 // -
 #define TIMES 34 // *
 #define DIVIDE 35 // /
-#define REST 36 // /
+#define REST 35 // /
 
 
 

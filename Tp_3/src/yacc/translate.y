@@ -1,6 +1,7 @@
 %{
 	#include <stdio.h>
 	#include <stdlib.h>
+	#include "../symbolTable/symbolTable.h"
 	int yylex(void);
 	int yyerror(const char *s);
 	int success = 1;
@@ -131,19 +132,6 @@ array_entry : array_entry '[' oper ']'
 			| id '[' oper ']'
 			;
 
-array_size	:array_size array_size
-			|'[' consts ']'
-			|'[' ']'
-			;
-
-dclr 	   :  type_consts id_list 
-		   |  type_consts id array_size
-		   ;
-
-id_list : id_list ',' id_list
-		| id '=' oper
-		| id
-		;
 
 funct_dclr 	: type_consts id
 		   	;
@@ -152,7 +140,7 @@ param_dclr 	: type_consts id
 			| type_consts id '[' ']'
 			;
 
-param_list : param_dclr ',' param_list
+param_list : param_dclr ',' param_list 
 		   | param_dclr
 		   | error // continue parsing 
 		   ;
@@ -169,14 +157,29 @@ array_list  : array ',' array_list
 			| array
 			;
 
-attr_types 	: dclr
-			| id
-			| array_entry
+
+array_size	:array_size array_size
+			|'[' consts ']'
+			|'[' id ']'
+			|'[' ']'
 			;
 
+dclr 	   :  type_consts list_dclr
+		   |  type_consts id array_size
+		   |  type_consts id array_size '=' array_list
+		   ;
 
-attr       : attr_types '=' oper
-		   | attr_types '=' array
+list_dclr : list_dclr ',' list_dclr
+			| id '=' oper
+			| id
+			;
+
+attr_recive : oper
+			| array_list
+			;
+
+attr       : id '=' attr_recive
+		   | array_entry '=' attr_recive
 		   | id INCRMT
 	       | id DECRMT
 		   | array_entry INCRMT
@@ -199,6 +202,10 @@ consts						: int_const
 int main(int argc,char *argv[])
 {
 	yydebug = 0;
+
+	symbolList symbollist;
+    createList(&symbollist);
+
 
 	extern int verbose;
 	 if( argc == 2 && strcmp(argv[1],"--verbose")==0) {
