@@ -2,7 +2,7 @@
 %{ 
 #include "../library/prints.h"
 #include "../library/define.h"
-#include "y.tab.h"
+#include "../yacc/y.tab.h"
 
 int yyline=1;
 int yychar_count=1;

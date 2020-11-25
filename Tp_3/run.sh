@@ -1,4 +1,6 @@
 clear
-cd src/lex
-bison -dy --debug yacc.y && lex lex.l && gcc lex.yy.c y.tab.c && ./a.out $1
+cd src
+cd yacc && bison -dy --debug yacc.y && cd ..  
+cd lex && lex lex.l && cd ..
+gcc lex/lex.yy.c yacc/y.tab.c && ./a.out $1
 
