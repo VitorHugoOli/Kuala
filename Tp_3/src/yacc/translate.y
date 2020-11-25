@@ -76,7 +76,6 @@ stmt       : IF '(' logic ')' block
 		   | FOR '(' expr_statement rel ';' attr ')' block
 		   | FOR '(' expr_statement rel ';' attr ')' stmt
 		   | block
-		   | funct
 		   | expr_statement stmt
 		   | expr_statement
 		   | error // continue parsing
@@ -93,7 +92,6 @@ expr_statement	: dclr ';'
 expr		: logic
 			| rel
 			| oper
-			| attr
 			;
 
 expr_list  	: expr ',' expr_list

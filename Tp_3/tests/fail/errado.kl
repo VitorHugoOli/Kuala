@@ -52,5 +52,8 @@ ibis d = paralelogramo(b,h);
 
 print(c);
 print(d);
+print(a=8);
+
+ibis funct(ibis asd, frog tre)
 
 }

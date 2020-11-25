@@ -21,6 +21,8 @@ kuala () {
     bug empregado = true;
 
     frog salario = 4523.00;
-    print(a=2);
+    
+    print(a+2);
+
 
 }
