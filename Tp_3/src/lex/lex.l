@@ -6,11 +6,15 @@
 
 
 int yyline=1;
-int yychar_count=1;
 extern int yyline;
+
+int yychar_count=1;
 extern int yychar_count;
+
 int verbose = 0;
 extern int verbose;
+
+
 #define show(mensg) verbose ? blue(mensg,yytext) : NULL
 int countNewLine(char *s);
 
@@ -44,11 +48,11 @@ blockComments [/][*]([^*]|[*]*[^*/])*[*][/]
 
 {blockComments}                                                       show("comentario em bloco"); yyline+=countNewLine(yytext); 
 
-{ws}		                                                              yyline++;yychar_count=1;
+{ws}		                                                              yyline++;yychar_count=1; 
 
 {space}                                                                yychar_count++;
 
-{string}                                                               show("STRING"); yyline+=countNewLine(yytext); yychar_count+=strlen(yytext); return string; 
+{string}                                                               show("STRING"); yyline+=countNewLine(yytext); yylval = createString(yytext); addTeste(yylval); yychar_count+=strlen(yytext);   return string; 
 
 kuala                                                                  show("Kuala"); yychar_count+=5; return KUALA;
 
@@ -74,11 +78,11 @@ viper                                                                  show("voi
 
 rabbit                                                                 show("return"); yychar_count+=5; return RETURN;
 
-{id}	                                                                 show("ID");  return id; yylval = createString(yytext);
+{id}	                                                                 show("ID");  return id; yylval = createID(yytext);
 
-{inteiro}                                                              show("numero inteiro");   return int_const;
+{inteiro}                                                              show("numero inteiro"); yylval = createNumber(yytext);  addTeste(yylval); return int_const;
 
-{decimal}                                                              show("numero decimal");  return float_const;
+{decimal}                                                              show("numero decimal"); yylval = createNumber(yytext); addTeste(yylval); return float_const;
 
 "+"                                                                    show("+"); yychar_count++; yylval = PLUS; return '+';
 
@@ -98,19 +102,19 @@ rabbit                                                                 show("ret
 
 "||"                                                                   show("||"); yychar_count+=2; yylval = OR; return LOGIC;
 
-"!"                                                                    show("!"); yychar_count++; yylval = NOT; return NOT;
+"!"                                                                    show("!"); yychar_count++; yylval = createRelop(yytext, NOT); addTeste(yylval); return NOT;
 
-"<"                                                                    show("<"); yychar_count+=2; yylval = LT; return RELOP;
+"<"                                                                    show("<"); yychar_count+=2; yylval = createRelop(yytext, LT); addTeste(yylval); return RELOP;
 
-"<="                                                                   show("<="); yychar_count+=2; yylval = LE; return RELOP;
+"<="                                                                   show("<="); yychar_count+=2; yylval = createRelop(yytext, LE); addTeste(yylval); return RELOP;
 
-"=="                                                                   show("=="); yychar_count+=2; yylval = EQ; return RELOP;
+"=="                                                                   show("=="); yychar_count+=2; yylval = createRelop(yytext, EQ); addTeste(yylval); return RELOP;
 
-"!="                                                                   show("!="); yychar_count+=2; yylval = NE; return RELOP;
+"!="                                                                   show("!="); yychar_count+=2; yylval = createRelop(yytext, NE); addTeste(yylval); return RELOP;
 
-">"                                                                    show(">"); yychar_count+=2; yylval = GT; return RELOP;
+">"                                                                    show(">"); yychar_count+=2; yylval = createRelop(yytext, GT); addTeste(yylval); return RELOP;
 
-">="                                                                   show(">="); yychar_count+=2; yylval = GE; return RELOP;
+">="                                                                   show(">="); yychar_count+=2; yylval = createRelop(yytext, GE); addTeste(yylval); return RELOP;
 
 {especialChar}                                                  	   show("char especial"); yychar_count++; return yytext[0]; 
 
@@ -119,7 +123,13 @@ rabbit                                                                 show("ret
 %% 
 
 int countNewLine(char *s){
+  
   return *s == '\0' ? 0 : countNewLine(s + 1) + (*s == '\n');
+}
+
+void addTeste(struct symbol *lex){
+  extern symbollist;
+  insertSymbol(&symbollist,lex);
 }
 
 /* int main(int argc,char *argv[]) 

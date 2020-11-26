@@ -71,12 +71,17 @@
 	#include <stdio.h>
 	#include <stdlib.h>
 	#include "../symbolTable/symbolTable.h"
+
+	
+	
 	int yylex(void);
 	int yyerror(const char *s);
 	int success = 1;
 	#define YYDEBUG_LEXER_TEXT yytext
+	symbolList symbollist; 
 
-#line 80 "y.tab.c" /* yacc.c:337  */
+
+#line 85 "y.tab.c" /* yacc.c:337  */
 # ifndef YY_NULLPTR
 #  if defined __cplusplus
 #   if 201103L <= __cplusplus
@@ -466,17 +471,17 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    34,    34,    35,    36,    37,    40,    41,    42,    45,
-      46,    49,    50,    54,    55,    56,    57,    60,    61,    64,
-      67,    68,    71,    72,    73,    74,    75,    76,    77,    78,
-      79,    80,    81,    84,    85,    86,    87,    88,    89,    92,
-      93,    94,    97,    98,   101,   102,   103,   104,   107,   108,
-     111,   112,   114,   115,   116,   117,   118,   119,   120,   121,
-     122,   123,   124,   125,   126,   129,   130,   134,   137,   138,
-     141,   142,   143,   146,   147,   150,   151,   154,   155,   159,
-     160,   161,   162,   165,   166,   167,   170,   171,   172,   175,
-     176,   179,   180,   181,   182,   183,   184,   187,   188,   189,
-     190,   193,   194,   195
+       0,    39,    39,    40,    41,    42,    45,    46,    47,    50,
+      51,    54,    55,    59,    60,    61,    62,    65,    66,    69,
+      72,    73,    76,    77,    78,    79,    80,    81,    82,    83,
+      84,    85,    86,    89,    90,    91,    92,    93,    94,    97,
+      98,    99,   102,   103,   106,   107,   108,   109,   112,   113,
+     116,   117,   119,   120,   121,   122,   123,   124,   125,   126,
+     127,   128,   129,   130,   131,   134,   135,   139,   142,   143,
+     146,   147,   148,   151,   152,   155,   156,   159,   160,   164,
+     165,   166,   167,   170,   171,   172,   175,   176,   177,   180,
+     181,   184,   185,   186,   187,   188,   189,   192,   193,   194,
+     195,   198,   199,   200
 };
 #endif
 
@@ -1415,7 +1420,7 @@ yyreduce:
   switch (yyn)
     {
       
-#line 1419 "y.tab.c" /* yacc.c:1652  */
+#line 1424 "y.tab.c" /* yacc.c:1652  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1646,17 +1651,18 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 198 "translate.y" /* yacc.c:1918  */
+#line 203 "translate.y" /* yacc.c:1918  */
 
 
 int main(int argc,char *argv[])
 {
 	yydebug = 0;
 
-	symbolList symbollist;
-    createList(&symbollist);
-
-
+	
+ 	
+	createList(&symbollist);
+	
+	
 	extern int verbose;
 	 if( argc == 2 && strcmp(argv[1],"--verbose")==0) {
       verbose=1;
@@ -1664,6 +1670,8 @@ int main(int argc,char *argv[])
     }
 
     yyparse();
+
+	printSymbolList(&symbollist);
 
 	
 

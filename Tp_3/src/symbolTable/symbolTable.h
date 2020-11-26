@@ -26,7 +26,7 @@ enum operators {
 typedef struct symbol {
 	enum tokens tok;
     enum operators op;
-    char *lexema;
+    char lexema[1000];
     struct symbol *next;
 } Symbol;
 
@@ -49,6 +49,4 @@ Symbol* createID(char *lexema);
 Symbol* createNumber(char *lexema);
 Symbol* createRelop(char *lexema, enum operators);
 Symbol* createLogic(char *lexema, enum operators);
-
-
-
+void printSymbolList(symbolList* list);

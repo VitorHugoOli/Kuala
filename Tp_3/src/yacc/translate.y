@@ -2,10 +2,15 @@
 	#include <stdio.h>
 	#include <stdlib.h>
 	#include "../symbolTable/symbolTable.h"
+
+	
+	
 	int yylex(void);
 	int yyerror(const char *s);
 	int success = 1;
 	#define YYDEBUG_LEXER_TEXT yytext
+	symbolList symbollist; 
+
 %}
 
 
@@ -121,7 +126,7 @@ oper   : oper '+' oper
 	   | '(' oper ')'
 	   | consts
 	   | id
-	   | string
+	   | string 
 	   | array_entry
 	   | call_funct
 	   ;
@@ -201,10 +206,11 @@ int main(int argc,char *argv[])
 {
 	yydebug = 0;
 
-	symbolList symbollist;
-    createList(&symbollist);
-
-
+	
+ 	
+	createList(&symbollist);
+	
+	
 	extern int verbose;
 	 if( argc == 2 && strcmp(argv[1],"--verbose")==0) {
       verbose=1;
@@ -212,6 +218,8 @@ int main(int argc,char *argv[])
     }
 
     yyparse();
+
+	printSymbolList(&symbollist);
 
 	
 

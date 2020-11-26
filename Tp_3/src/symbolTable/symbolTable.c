@@ -77,12 +77,11 @@ void clear(symbolList *list) {
 }
 
 
-
 Symbol* createString(char *lexema){
     Symbol *s = (Symbol *) malloc(sizeof(Symbol));
     s-> tok = STRING_TOK;
     s-> op = NONE;
-    s-> lexema = lexema;
+    strcpy(s-> lexema, lexema);
     return s;
 }
 
@@ -91,7 +90,7 @@ Symbol* createID(char *lexema){
      Symbol *s = (Symbol *) malloc(sizeof(Symbol));
     s-> tok = ID_TOK;
     s-> op = NONE;
-    s-> lexema = lexema;
+    strcpy(s-> lexema, lexema);
     return s;
 }
 
@@ -99,7 +98,7 @@ Symbol* createNumber(char *lexema){
  Symbol *s = (Symbol *) malloc(sizeof(Symbol));
     s-> tok = NUMBER_TOK;
     s-> op = NONE;
-    s-> lexema = lexema;
+    strcpy(s-> lexema, lexema);
     return s;
 }
 
@@ -107,7 +106,7 @@ Symbol* createRelop(char *lexema, enum operators op){
  Symbol *s = (Symbol *) malloc(sizeof(Symbol));
     s-> tok = RELOP_TOK;
     s-> op = op;
-    s-> lexema = lexema;
+    strcpy(s-> lexema, lexema);
     return s;
 }
 
@@ -115,6 +114,17 @@ Symbol* createLogic(char *lexema, enum operators op){
  Symbol *s = (Symbol *) malloc(sizeof(Symbol));
     s-> tok = LOGIC_TOK;
     s-> op = op;
-    s-> lexema = lexema;
+    strcpy(s-> lexema, lexema);
     return s;
+}
+
+void printSymbolList(symbolList* list){
+    Symbol *teste = list->head->next;
+    while(NULL != teste){ //Percorre todo o vetor palavra ate encontrar a letra que corresponde a primeira letra
+        printf("Operador %u\n",teste->tok);
+        printf("Operador %u\n",teste->op);
+        printf("Lexema %s\n",teste->lexema);
+        teste = teste->next;
+    }
+
 }

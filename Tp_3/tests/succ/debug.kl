@@ -2,8 +2,7 @@ viper selectionSort(ibis array, ibis n);
 
 
 kuala () {
-    snake a = "opa
-    ";
+    snake a = "opa";
 
     frog a = 1 + (- 2);
 
@@ -23,6 +22,5 @@ kuala () {
     frog salario = 4523.00;
     
     print(a+2);
-
 
 }
