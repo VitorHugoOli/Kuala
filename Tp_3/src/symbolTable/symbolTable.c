@@ -121,9 +121,10 @@ Symbol* createLogic(char *lexema, enum operators op){
 void printSymbolList(symbolList* list){
     Symbol *teste = list->head->next;
     while(NULL != teste){ //Percorre todo o vetor palavra ate encontrar a letra que corresponde a primeira letra
-        printf("Operador %u\n",teste->tok);
+        printf("token %u\n",teste->tok);
         printf("Operador %u\n",teste->op);
         printf("Lexema %s\n",teste->lexema);
+        printf("\n ------------------------------------------ \n");
         teste = teste->next;
     }
 
