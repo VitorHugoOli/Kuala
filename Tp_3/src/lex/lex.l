@@ -5,6 +5,7 @@
 #include "../yacc/y.tab.h"
 
 
+
 int yyline=1;
 extern int yyline;
 
@@ -52,7 +53,7 @@ blockComments [/][*]([^*]|[*]*[^*/])*[*][/]
 
 {space}                                                                yychar_count++;
 
-{string}                                                               show("STRING"); yyline+=countNewLine(yytext); yylval = createString(yytext); addTeste(yylval); yychar_count+=strlen(yytext);   return string; 
+{string}                                                               show("STRING"); yyline+=countNewLine(yytext); yylval = createString(yytext); addTeste(yylval); yychar_count+=strlen(yytext);  return string; 
 
 kuala                                                                  show("Kuala"); yychar_count+=5; return KUALA;
 
@@ -102,7 +103,7 @@ rabbit                                                                 show("ret
 
 "||"                                                                   show("||"); yychar_count+=2; yylval = OR; return LOGIC;
 
-"!"                                                                    show("!"); yychar_count++; yylval = createRelop(yytext, NOT); addTeste(yylval); return NOT;
+"!"                                                                    show("!"); yychar_count++; yylval = createRelop(yytext, NOTE); addTeste(yylval); return NOT;
 
 "<"                                                                    show("<"); yychar_count+=2; yylval = createRelop(yytext, LT); addTeste(yylval); return RELOP;
 

@@ -558,6 +558,7 @@ char *yytext;
 #include "../yacc/y.tab.h"
 
 
+
 int yyline=1;
 extern int yyline;
 
@@ -571,9 +572,9 @@ extern int verbose;
 #define show(mensg) verbose ? blue(mensg,yytext) : NULL
 int countNewLine(char *s);
 
-#line 575 "lex.yy.c"
+#line 576 "lex.yy.c"
 /* definicoes regulares */ 
-#line 577 "lex.yy.c"
+#line 578 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -790,10 +791,10 @@ YY_DECL
 		}
 
 	{
-#line 45 "lex.l"
+#line 46 "lex.l"
 
 
-#line 797 "lex.yy.c"
+#line 798 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -862,203 +863,203 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 47 "lex.l"
+#line 48 "lex.l"
 show("comentario simples"); yyline++; 
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 49 "lex.l"
+#line 50 "lex.l"
 show("comentario em bloco"); yyline+=countNewLine(yytext); 
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 51 "lex.l"
+#line 52 "lex.l"
 yyline++;yychar_count=1; 
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 53 "lex.l"
+#line 54 "lex.l"
 yychar_count++;
 	YY_BREAK
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 55 "lex.l"
-show("STRING"); yyline+=countNewLine(yytext); yylval = createString(yytext); addTeste(yylval); yychar_count+=strlen(yytext);   return string; 
+#line 56 "lex.l"
+show("STRING"); yyline+=countNewLine(yytext); yylval = createString(yytext); addTeste(yylval); yychar_count+=strlen(yytext);  return string; 
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 57 "lex.l"
+#line 58 "lex.l"
 show("Kuala"); yychar_count+=5; return KUALA;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 59 "lex.l"
+#line 60 "lex.l"
 show("ʕ·͡ᴥ·ʔ"); yychar_count+=5; return KUALA;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 61 "lex.l"
+#line 62 "lex.l"
 show("IF"); yychar_count+=6; return IF;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 63 "lex.l"
+#line 64 "lex.l"
 show("ELSE"); yychar_count+=3; return ELSE;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 65 "lex.l"
+#line 66 "lex.l"
 show("WHILE"); yychar_count+=5; return WHILE;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 67 "lex.l"
+#line 68 "lex.l"
 show("FOR"); yychar_count+=3; return FOR;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 69 "lex.l"
+#line 70 "lex.l"
 show("INT"); yychar_count+=4; return INT;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 71 "lex.l"
+#line 72 "lex.l"
 show("FLOAT"); yychar_count+=4;return FLOAT;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 73 "lex.l"
+#line 74 "lex.l"
 show("BOOL"); yychar_count+=3;return BOOL;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 75 "lex.l"
+#line 76 "lex.l"
 show("STRING"); yychar_count+=5; return STRING;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 77 "lex.l"
+#line 78 "lex.l"
 show("void"); yychar_count+=5; return VOID;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 79 "lex.l"
+#line 80 "lex.l"
 show("return"); yychar_count+=5; return RETURN;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 81 "lex.l"
+#line 82 "lex.l"
 show("ID");  return id; yylval = createID(yytext);
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 83 "lex.l"
+#line 84 "lex.l"
 show("numero inteiro"); yylval = createNumber(yytext);  addTeste(yylval); return int_const;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 85 "lex.l"
+#line 86 "lex.l"
 show("numero decimal"); yylval = createNumber(yytext); addTeste(yylval); return float_const;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 87 "lex.l"
+#line 88 "lex.l"
 show("+"); yychar_count++; yylval = PLUS; return '+';
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 89 "lex.l"
+#line 90 "lex.l"
 show("-"); yychar_count++; yylval = MINUS; return '-';
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 91 "lex.l"
+#line 92 "lex.l"
 show("*"); yychar_count++; yylval = TIMES; return '*';
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 93 "lex.l"
+#line 94 "lex.l"
 show("/"); yychar_count++; yylval = DIVIDE; return '/';
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 95 "lex.l"
+#line 96 "lex.l"
 show("%"); yychar_count++; yylval = REST; return '%';
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 97 "lex.l"
+#line 98 "lex.l"
 show("--"); yychar_count++; yylval = MINUS; return DECRMT;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 99 "lex.l"
+#line 100 "lex.l"
 show("++"); yychar_count++; yylval = PLUS; return INCRMT;
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 101 "lex.l"
+#line 102 "lex.l"
 show("&&"); yychar_count+=2; yylval = AND; return LOGIC;
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 103 "lex.l"
+#line 104 "lex.l"
 show("||"); yychar_count+=2; yylval = OR; return LOGIC;
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 105 "lex.l"
-show("!"); yychar_count++; yylval = createRelop(yytext, NOT); addTeste(yylval); return NOT;
+#line 106 "lex.l"
+show("!"); yychar_count++; yylval = createRelop(yytext, NOTE); addTeste(yylval); return NOT;
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 107 "lex.l"
+#line 108 "lex.l"
 show("<"); yychar_count+=2; yylval = createRelop(yytext, LT); addTeste(yylval); return RELOP;
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 109 "lex.l"
+#line 110 "lex.l"
 show("<="); yychar_count+=2; yylval = createRelop(yytext, LE); addTeste(yylval); return RELOP;
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 111 "lex.l"
+#line 112 "lex.l"
 show("=="); yychar_count+=2; yylval = createRelop(yytext, EQ); addTeste(yylval); return RELOP;
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 113 "lex.l"
+#line 114 "lex.l"
 show("!="); yychar_count+=2; yylval = createRelop(yytext, NE); addTeste(yylval); return RELOP;
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 115 "lex.l"
+#line 116 "lex.l"
 show(">"); yychar_count+=2; yylval = createRelop(yytext, GT); addTeste(yylval); return RELOP;
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 117 "lex.l"
+#line 118 "lex.l"
 show(">="); yychar_count+=2; yylval = createRelop(yytext, GE); addTeste(yylval); return RELOP;
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 119 "lex.l"
+#line 120 "lex.l"
 show("char especial"); yychar_count++; return yytext[0]; 
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 121 "lex.l"
+#line 122 "lex.l"
 {redPrint(yytext,yyline,yychar_count);yychar_count++; } //yyterminate();
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 123 "lex.l"
+#line 124 "lex.l"
 ECHO;
 	YY_BREAK
-#line 1062 "lex.yy.c"
+#line 1063 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2075,7 +2076,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 123 "lex.l"
+#line 124 "lex.l"
 
 
 int countNewLine(char *s){

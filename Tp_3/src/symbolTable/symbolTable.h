@@ -20,6 +20,7 @@ enum operators {
     GE =6,
     AND = 7,
     OR = 8,
+    NOTE =9,
     NONE = 10
 };
 

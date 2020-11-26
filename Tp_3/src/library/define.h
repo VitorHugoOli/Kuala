@@ -5,6 +5,8 @@
 #define NE 4 // Diferente que 
 #define GT 5 // Maior que 
 #define GE 6 // Maior igual que 
+#define NOTE 9 // Maior igual que 
+
 
 // #define IF 10 // IGUANA
 // #define ELSE 11 //EEL

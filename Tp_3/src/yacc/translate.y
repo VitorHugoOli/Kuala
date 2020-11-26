@@ -219,7 +219,10 @@ int main(int argc,char *argv[])
 
     yyparse();
 
-	printSymbolList(&symbollist);
+	if(verbose){
+		printf("\n\n\e[1;33mTabela de simbolos\e[0m \n");
+		printSymbolList(&symbollist);
+	}
 
 	
 
