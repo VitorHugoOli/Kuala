@@ -19,6 +19,8 @@ extern int verbose;
 #define show(mensg) verbose ? blue(mensg,yytext) : NULL
 int countNewLine(char *s);
 
+
+
 %} 
 
 %option noyywrap 

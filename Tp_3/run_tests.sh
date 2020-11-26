@@ -1,4 +1,3 @@
-clear
 cd src
 cd yacc && bison -dy --debug translate.y && cd ..  
 cd lex && lex lex.l && cd ..
