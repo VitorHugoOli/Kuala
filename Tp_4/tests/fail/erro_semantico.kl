@@ -1,0 +1,46 @@
+frog nunu(frog altura, frog peso);
+
+
+kuala(){
+    //Em teoria deve funcionar
+    ibis correto = nunu(1.85, 89.5);
+    
+    frog teste;
+    
+    //O tipo esperado não condiz com o retorno da função
+    bug pipa = nunu(1.56, 56.1);
+    snake kk = "MAnda";
+    bug ii = 0;
+    
+    //os parâmetros não condizem com os tipos esperados
+    nunu(kk, ii);
+
+    //Atribuicao entre inteiro e string deve ser inválida
+    correto = kk;
+
+    //A expressão passada ao if não é um inteiro e nem boolean
+    iguana(kk){
+        kk = "Faz nda";
+    }
+
+    //atribuindo string a int
+    correto = "Atribuicao errada";
+
+    //Deve dar um erro ou não, já que um inteiro tá recebendo float
+    ibis mimi = 10 / 3;
+
+    //Outro erro, pois string não faz operação aritmética
+    mimi = "Tá tudo bem" / 10;
+
+    //nunu não foi declarado
+    nunuu = "okok";
+
+    nunu = 1.0;
+
+    //Esta função não foi definida
+    caminha("Erro", "Mais erro");
+}
+
+frog nunu(frog altura, frog peso){
+    rabbit (peso / (altura * altura));
+}
